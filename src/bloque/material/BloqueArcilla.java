@@ -17,4 +17,9 @@ public class BloqueArcilla extends BloqueTierra {
 		}
 		super.destruir();
 	}
+	
+	@Override
+	public boolean spawnCheck() {
+		return false;
+	}
 }

@@ -12,5 +12,10 @@ public class BloqueVacio extends Bloque {
 	public void destruir(String herramienta, Jugador jugador) {
 		super.destruir();
 	}
+	
+	@Override
+	public boolean spawnCheck() {
+		return true;
+	}
 
 }

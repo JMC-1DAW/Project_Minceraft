@@ -11,21 +11,32 @@ public class Jugador {
 	
 	//Nombre del jugador
 	String nombre;
+	int x;
+	int y;
+	int z;
+	
+	int axe;
+	int pick;
+	int shov;
 
 	//Lista de materias primas del jugador
 	int[] materiasPrimas = new int[Bloque.NUM_MATERIAS];
 
 	public Jugador(String nombre) {
 		this.nombre = nombre;
+		axe = 5;
+		pick = 5;
+		shov = 5;
 	}
 
 	/**
 	 * No hace falta explicarlo... o si?
 	 */
 	public String toString() {
-		return this.nombre + " - Materias primas recolectadas\n" + "Plantas: " + materiasPrimas[Bloque.PLANTA] + "\nArboles: "
+		return this.nombre + "\nMaterias primas recolectadas:\n" + "Plantas: " + materiasPrimas[Bloque.PLANTA] + "\nArboles: "
 				+ materiasPrimas[Bloque.ARBOL] + "\nArcilla: " + materiasPrimas[Bloque.ARCILLA] + "\nAlbero: "
-				+ materiasPrimas[Bloque.ALBERO] + "\nHierro: " + materiasPrimas[Bloque.HIERRO] + "\nCobre: " + materiasPrimas[Bloque.COBRE];
+				+ materiasPrimas[Bloque.ALBERO] + "\nHierro: " + materiasPrimas[Bloque.HIERRO] + "\nCobre: " + materiasPrimas[Bloque.COBRE]
+				+ "\nHerramientas:" + "\nHacha: " + axe + "\nPico: " + pick + "\nPala: " + shov;
 	}
 
 	
@@ -64,6 +75,16 @@ public class Jugador {
 			throw new IllegalArgumentException("Unexpected value: " + tipo);
 		}
 		
+	}
+
+	public void coords(int i, int j, int k) {
+		x = i;
+		y = j;
+		z = k;
+	}
+
+	public String getCoords() {
+		return "x" + x + " " + "y" + y + " " + "z" + z;
 	}
 
 }

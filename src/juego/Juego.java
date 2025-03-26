@@ -1,6 +1,7 @@
 package juego;
 
 import java.util.Random;
+import java.util.Scanner;
 
 import bloque.Bloque;
 import bloque.categoria.BloqueMineral;
@@ -20,16 +21,25 @@ import bloque.material.BloqueVacio;
  * @author y0rg
  * @version 1.1
  */
+
 public class Juego {
 	
 	//Indica el tamano del cub que contendra el mapa que vamos a crear
 	public static final int TAMANO_MUNDO = 10;
 
+	private static final Scanner in = new Scanner(System.in);
 	
 	/**
 	 * Metodo principal, ejecuta el juego
 	 */
 	public static void main(String[] args) {
+		
+		System.out.println("{<=========[Minceraft]=========>}");
+		System.out.println("{<                             >}");
+		System.out.println("{<      Creando mundo...       >}");
+		System.out.println("{<                             >}");
+		System.out.println("{<=========[Minceraft]=========>}");
+		System.out.println("");
 
 		//Creamos el mapa del juego
 		Bloque[][][] mundo3D = new Bloque[TAMANO_MUNDO][TAMANO_MUNDO][TAMANO_MUNDO];
@@ -43,25 +53,141 @@ public class Juego {
 			}
 		}
 
+		System.out.println("{<=========[Minceraft]=========>}");
+		System.out.println("{<                             >}");
+		System.out.println("{<       Posicionando...       >}");
+		System.out.println("{<                             >}");
+		System.out.println("{<=========[Minceraft]=========>}");
+		System.out.println("");
+
+		
 		//Creamos el jugador
 		Jugador yo = new Jugador("Jorge");
-
-		//TODO Crear un menú que sustituya el bloque de abajo por lo que pide el nuevo pdf
 		
+		boolean spawned = false;
 		
-		//El Jugador recorre el mapa entero recolectando materias primas
-		for (int i= 0; i <TAMANO_MUNDO; i++) {
-			for (int j= 0; j <TAMANO_MUNDO; j++) {
-				for (int k= 0; k <TAMANO_MUNDO; k++) {
-					//EN este caso solo utiliza el "Pico"
-					mundo3D[i][j][k].destruir(BloqueMineral.HERRAMIENTA, yo);
+		int i = 0, j = 0, k = 2;
+		
+		do {
+			
+			if (mundo3D[i][j][k].spawnCheck()) {
+				yo.coords(i,j,k);
+				spawned = true;
+			} else {
+				if (i == 9) {
+					i = 0;
+					j++;
+					if (j == 9) {
+						j = 0;
+						k++;
+					}
+				} else {
+					i++;
 				}
 			}
-		}
+			
+		} while (!spawned);
 		
-		//Mostramos el resultado de la recolección
-		System.out.println(yo);
+		System.out.println("{<=========[Minceraft]=========>}");
+		System.out.println("{<                             >}");
+		System.out.println("{<      Seleccione acción:     >}");
+		System.out.println("{<                             >}");
+		System.out.println("{<=========[Minceraft]=========>}");
+		System.out.println("");
 		
+		int act = 0;
+		
+		do {
+
+			System.out.println("{<=========[Minceraft]=========>}");
+			System.out.println("{<                             >}");
+			System.out.println("{<       [MENÚ PRINCIPAL]      >}");
+			System.out.println("{<                             >}");
+			System.out.println("{<          (1) Mover          >}");
+			System.out.println("{<    (2) Crear herramientas   >}");
+			System.out.println("{<          (3) Estado         >}");
+			System.out.println("{<          (4) Salir          >}");
+			System.out.println("{<                             >}");
+			System.out.println("{<=========[Minceraft]=========>}");
+			System.out.println("");
+			
+			act = in.nextInt();
+			
+			switch (act) {
+				case 1: {
+					
+					String pos = yo.getCoords();
+					int move;
+					
+					System.out.println("{<=========[Minceraft]=========>}");
+					System.out.println("{<                             >}");
+					System.out.println("{<   ¿Hacia donde se moverá?   >}");
+					System.out.println("{<                             >}");
+					System.out.println("{<          (1) /\\             >}");
+					System.out.println("{<          (2) ^              >}");
+					System.out.println("{<        (3) < O > (4)        >}");
+					System.out.println("{<          (5) v              >}");
+					System.out.println("{<          (6) \\/             >}");
+					System.out.println("{<                             >}");
+					System.out.println("{< Posición actual = " + pos + "  >}");
+					System.out.println("{<                             >}");
+					System.out.println("{<=========[Minceraft]=========>}");
+					System.out.println("");
+					
+					move = in.nextInt();
+					
+					switch (move) {
+						case 1: {
+							break;
+						}
+						case 2: {
+							break;
+						}
+						case 3: {
+							break;
+						}
+						case 4: {
+							break;
+						}
+						case 5: {
+							break;
+						}
+						case 6: {
+							break;
+						}
+						default: {
+							System.out.println("{<=========[Minceraft]=========>}");
+							System.out.println("{<                             >}");
+							System.out.println("{<     (Decides no moverte)    >}");
+							System.out.println("{<                             >}");
+							System.out.println("{<=========[Minceraft]=========>}");
+							System.out.println("");
+						}
+					}
+					
+					break;
+				}
+				case 2: {
+					break;
+				}
+				case 3: {
+					System.out.println(yo);
+					break;
+				}
+				case 4: {
+					break;
+				}
+				default: {
+					System.err.println("{<=========[Minceraft]=========>}");
+					System.err.println("{<                             >}");
+					System.err.println("{<     Eso no es una acción    >}");
+					System.err.println("{<                             >}");
+					System.err.println("{<=========[Minceraft]=========>}");
+					System.out.println("");
+				}
+			}
+			
+		} while (act != 4);
 		
 	}
 

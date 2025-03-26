@@ -17,4 +17,11 @@ public class BloqueAlbero extends BloqueTierra {
 		}
 		super.destruir();
 	}
+
+	@Override
+	public boolean spawnCheck() {
+		return false;
+	}
+	
+	
 }

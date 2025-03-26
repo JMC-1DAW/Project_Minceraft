@@ -17,4 +17,9 @@ public class BloqueArbol extends BloqueVegetal {
 		}
 		super.destruir();
 	}
+	
+	@Override
+	public boolean spawnCheck() {
+		return false;
+	}
 }

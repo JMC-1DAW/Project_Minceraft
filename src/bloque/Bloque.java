@@ -33,4 +33,6 @@ public abstract class Bloque {
 	
 	public abstract void destruir(String herramienta, Jugador jugador);
 
+	public abstract boolean spawnCheck();
+
 }

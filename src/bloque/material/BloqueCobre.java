@@ -17,4 +17,9 @@ public class BloqueCobre extends BloqueMineral {
 		}
 		super.destruir();
 	}
+	
+	@Override
+	public boolean spawnCheck() {
+		return false;
+	}
 }
