@@ -22,4 +22,5 @@ public class BloqueHierro extends BloqueMineral {
 	public boolean spawnCheck() {
 		return false;
 	}
+
 }

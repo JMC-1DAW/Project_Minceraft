@@ -23,5 +23,4 @@ public class BloqueAlbero extends BloqueTierra {
 		return false;
 	}
 	
-	
 }

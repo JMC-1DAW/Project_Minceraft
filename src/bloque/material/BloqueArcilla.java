@@ -22,4 +22,5 @@ public class BloqueArcilla extends BloqueTierra {
 	public boolean spawnCheck() {
 		return false;
 	}
+
 }

@@ -35,4 +35,23 @@ public abstract class Bloque {
 
 	public abstract boolean spawnCheck();
 
+	@Override
+	public String toString() {
+		
+		String exact;
+		int get = tipo;
+		
+		switch (get) {
+		case 0: exact = "Planta "; break;
+		case 1: exact = "Árbol  "; break;
+		case 2: exact = "Arcilla"; break;
+		case 3: exact = "Albero "; break;
+		case 4: exact = "Hierro "; break;
+		case 5: exact = "Cobre  "; break;
+		default: exact = "Vacío  "; break;
+		}
+		
+		return "[x=" + x + ", y=" + y + ", z=" + z + ", tipo=" + exact + "]";
+	}
+
 }

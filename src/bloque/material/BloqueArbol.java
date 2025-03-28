@@ -22,4 +22,5 @@ public class BloqueArbol extends BloqueVegetal {
 	public boolean spawnCheck() {
 		return false;
 	}
+
 }

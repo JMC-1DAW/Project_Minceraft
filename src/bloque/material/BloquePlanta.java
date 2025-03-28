@@ -22,4 +22,5 @@ public class BloquePlanta extends BloqueVegetal {
 	public boolean spawnCheck() {
 		return false;
 	}
+
 }

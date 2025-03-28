@@ -22,4 +22,5 @@ public class BloqueCobre extends BloqueMineral {
 	public boolean spawnCheck() {
 		return false;
 	}
+
 }
